@@ -9,8 +9,8 @@ const ScoreSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  time: {
-    type: Date,
+  seconds: {
+    type: Number,
     required: true,
   }
 }, {
