@@ -3,7 +3,12 @@ const mongoose = require('mongoose');
 const ScoreSchema = new mongoose.Schema({
   playerName: {
     type: String,
-    required: true,    
+    trim: true,
+    required: [true, 'PlayerName is required']
+  },
+  difficulty: {
+    type: String,
+    required: true,
   },
   value: {
     type: Number,

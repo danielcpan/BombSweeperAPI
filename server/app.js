@@ -25,6 +25,15 @@ app.use('/api', routes);
 
 // If error is not an instanceOf APIError, convert it.
 app.use((err, req, res, next) => {
+  // Format Validation Errors into one msg
+  if (err.name === 'ValidationError') {
+    const validationErrorMsg = []
+    for (field in err.errors) {
+      validationErrorMsg.push(err.errors[field].message);
+    }
+    err.message = validationErrorMsg.join(',')
+  }
+
   if (!(err instanceof APIError)) {
     const apiError = new APIError(err.message, err.status);
     return next(apiError);
