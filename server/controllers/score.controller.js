@@ -4,7 +4,9 @@ const Score = require('../models/score.model');
 module.exports = {
   list: async (req, res, next) => {    
     try {
-      const leaderboard = await Score.find(req.query).limit(100);
+      const leaderboard = await Score.find(req.query)
+        .sort({ value: 1, seconds: 1 })
+        .limit(100);
 
       return res.json(leaderboard);
     } catch (err) {
