@@ -4,7 +4,9 @@ const ScoreSchema = new mongoose.Schema({
   playerName: {
     type: String,
     trim: true,
-    required: [true, 'PlayerName is required']
+    required: [true, 'Player Name is required'],
+    maxlength: [16, 'Player Name cannot be longer than 16 characters']
+
   },
   difficulty: {
     type: String,
