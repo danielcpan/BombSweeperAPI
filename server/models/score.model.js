@@ -14,7 +14,11 @@ const ScoreSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  seconds: {
+  clicks: {
+    type: Number,
+    required: true,
+  },
+  time: {
     type: Number,
     required: true,
   }
